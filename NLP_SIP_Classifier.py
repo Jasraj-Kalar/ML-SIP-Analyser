@@ -1,7 +1,7 @@
 """
 SIP Log Anomaly Detection & Classification
 
-This script trains a model to classify SIP communication logs as normal or anomalous.
+This script trains a model to classify SIP call logs.
 """
 import pandas as pd
 import numpy as np
@@ -29,7 +29,7 @@ def load_and_prepare_data(filepath):
         print(f"Error: The file '{filepath}' was not found.")
         return None, None, None
 
-    # Clean and standardize data types to prevent errors
+    # Clean and standardise data types to prevent errors
     for col in ['packets', 'time_diffs']:
         df[col] = df[col].fillna('').astype(str)
     for col in ['codec', 'final_response']:
@@ -87,7 +87,7 @@ def calculate_anomaly_scores(pipeline, X_test, y_test, y_pred):
     return results_df.sort_values(by='anomaly_score', ascending=False)
     
 def plot_all_visualizations(pipeline, X_train, y_train, y_test, y_pred, anomaly_results, le):
-    """Generates and displays the final 3 evaluation plots in a clean layout."""
+    """Generates and displays evaluation plots"""
     class_names = list(le.classes_)
     
     fig = plt.figure(figsize=(14, 10))
@@ -138,7 +138,7 @@ def plot_all_visualizations(pipeline, X_train, y_train, y_test, y_pred, anomaly_
     plt.show()
 
 def main():
-    """Main script."""
+    """Main script"""
     # Load and prepare data
     X, y_encoded, label_encoder = load_and_prepare_data(CSV_FILENAME)
     if X is None:
@@ -153,7 +153,7 @@ def main():
     pipeline = build_model_pipeline()
     print("Training the model...")
     pipeline.fit(X_train, y_train)
-    print("Model training complete. ✅\n")
+    print("Model training complete.\n")
     
     # Evaluate the model on the test set
     print("Evaluating Model on Test Set")
@@ -174,4 +174,5 @@ def main():
     print("\nEnd")
 
 if __name__ == '__main__':
+
     main()
