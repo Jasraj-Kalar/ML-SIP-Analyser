@@ -29,14 +29,11 @@ def load_and_prepare_data(filepath):
         print(f"Error: The file '{filepath}' was not found.")
         return None, None, None
 
-    # Clean and standardise data types to prevent errors
-    for col in ['packets', 'time_diffs']:
+    # Standardise data types to prevent errors
+    for col in ['packets', 'time_diffs', 'codec', 'final_response', 'label']:
         df[col] = df[col].fillna('').astype(str)
-    for col in ['codec', 'final_response']:
-        df[col] = df[col].fillna('N/A').astype(str)
-    df['label'] = df['label'].astype(str)
 
-    # Combine text feature for NLP processing
+    # Combine text feature for NLP
     df['combined_text'] = (df['packets'] + " " + df['time_diffs']).str.strip()
     
     # Define features (X) and target (y)
@@ -174,6 +171,4 @@ def main():
     print("\nEnd")
 
 if __name__ == '__main__':
-
     main()
-
