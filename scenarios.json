@@ -1,0 +1,127 @@
+{
+  "fail_503_service_unavailable": {
+    "description": "Failure: UAS replies 503 Service Unavailable to INVITE (UAC sends ACK).",
+    "uac": "uac_fail_503_service_unavailable.xml",
+    "uas": "uas_fail_503_service_unavailable.xml",
+    "tags": [
+      "failure",
+      "503"
+    ],
+    "runs": 500
+  },
+  "fail_404_not_found": {
+    "description": "Failure: UAS replies 404 Not Found to INVITE (UAC sends ACK).",
+    "uac": "uac_fail_404_not_found.xml",
+    "uas": "uas_fail_404_not_found.xml",
+    "tags": [
+      "failure",
+      "404"
+    ],
+    "runs": 500
+  },
+  "fail_603_decline": {
+    "description": "Failure: UAS replies 603 Decline to INVITE (UAC sends ACK).",
+    "uac": "uac_fail_603_decline.xml",
+    "uas": "uas_fail_603_decline.xml",
+    "tags": [
+      "failure",
+      "603"
+    ],
+    "runs": 500
+  },
+  "fail_487_request_terminated": {
+    "description": "Failure: UAS replies 487 Request Terminated to INVITE (UAC sends ACK).",
+    "uac": "uac_fail_487_request_terminated.xml",
+    "uas": "uas_fail_487_request_terminated.xml",
+    "tags": [
+      "failure",
+      "487"
+    ],
+    "runs": 500
+  },
+  "fail_486_busy_here": {
+    "description": "Failure: UAS replies 486 Busy Here to INVITE (UAC sends ACK).",
+    "uac": "uac_fail_486_busy_here.xml",
+    "uas": "uas_fail_486_busy_here.xml",
+    "tags": [
+      "failure",
+      "486"
+    ],
+    "runs": 500
+  },
+  "fail_timeout_no_response": {
+    "description": "Failure: Timeout waiting for provisional/final response (UAS stays silent).",
+    "uac": "uac_fail_timeout_no_response.xml",
+    "uas": "uas_fail_timeout_no_response.xml",
+    "tags": [
+      "failure",
+      "timeout"
+    ],
+    "runs": 500
+  },
+  "fail_canceled_call": {
+    "description": "Failure: Caller cancels during ringing. UAS replies 200 to CANCEL and 487 to original INVITE.",
+    "uac": "uac_fail_canceled_call.xml",
+    "uas": "uas_fail_canceled_call.xml",
+    "tags": [
+      "failure",
+      "cancel"
+    ],
+    "runs": 500
+  },
+  "fail_busy_call_after_ringing": {
+    "description": "Failure: Callee rings then returns 486 Busy Here.",
+    "uac": "uac_fail_busy_call_after_ringing.xml",
+    "uas": "uas_fail_busy_call_after_ringing.xml",
+    "tags": [
+      "failure",
+      "busy",
+      "486"
+    ],
+    "runs": 500
+  },
+  "fail_wrong_183_then_180_order": {
+    "description": "Failure: Non-standard provisional order (183 then 180). Call connects but ringback may be absent.",
+    "uac": "uac_fail_wrong_183_then_180_order.xml",
+    "uas": "uas_fail_wrong_183_then_180_order.xml",
+    "tags": [
+      "failure",
+      "183",
+      "180",
+      "ordering"
+    ],
+    "runs": 500
+  },
+  "success_183_with_sdp_then_200": {
+    "description": "Success: 183 Session Progress with SDP (early media) then 200 OK.",
+    "uac": "uac_success_183_with_sdp_then_200.xml",
+    "uas": "uas_success_183_with_sdp_then_200.xml",
+    "tags": [
+      "success",
+      "183"
+    ],
+    "runs": 500
+  },
+  "success_g711a_pcma": {
+    "description": "Success: Call using codec G.711 A-law (PCMA).",
+    "uac": "uac_success_g711a_pcma.xml",
+    "uas": "uas_success_g711a_pcma.xml",
+    "tags": [
+      "success",
+      "codec",
+      "PCMA"
+    ],
+    "runs": 500
+  },
+  "fail_amr_codec": {
+    "description": "Failure: Call using AMR codec with octet-align.",
+    "uac": "uac_fail_amr_codec.xml",
+    "uas": "uas_fail_amr_codec.xml",
+    "tags": [
+      "failure",
+      "codec",
+      "AMR"
+    ],
+    "runs": 500
+  }
+}
