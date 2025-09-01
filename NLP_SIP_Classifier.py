@@ -86,7 +86,7 @@ def calculate_anomaly_scores(pipeline, X_test, y_test, y_pred):
     
     return results_df.sort_values(by='anomaly_score', ascending=False)
     
-def plot_all_visualizations(pipeline, X_train, y_train, y_test, y_pred, anomaly_results, le):
+def plot_all_visualisations(pipeline, X_train, y_train, y_test, y_pred, anomaly_results, le):
     """Generates and displays evaluation plots"""
     class_names = list(le.classes_)
     
@@ -151,7 +151,7 @@ def main():
     
     # Build and train the model
     pipeline = build_model_pipeline()
-    print("Training the model...")
+    print("Training the model")
     pipeline.fit(X_train, y_train)
     print("Model training complete.\n")
     
@@ -168,11 +168,12 @@ def main():
     # Calculate anomaly scores
     anomaly_results = calculate_anomaly_scores(pipeline, X_test, y_test, y_pred)
     
-    # Generate all visualizations in one go
+    # Generate plots
     print("Generating model performance board")
-    plot_all_visualizations(pipeline, X_train, y_train, y_test, y_pred, anomaly_results, label_encoder)
+    plot_all_visualisations(pipeline, X_train, y_train, y_test, y_pred, anomaly_results, label_encoder)
     print("\nEnd")
 
 if __name__ == '__main__':
 
     main()
+
