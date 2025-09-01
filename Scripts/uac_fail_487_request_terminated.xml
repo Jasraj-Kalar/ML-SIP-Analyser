@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE scenario SYSTEM "sipp.dtd">
+<scenario name="fail_487_request_terminated">
+      <send retrans="500">
+      <![CDATA[
+      INVITE sip:1001@[remote_ip]:[remote_port];transport=UDP SIP/2.0
+      Via: SIP/2.0/UDP [local_ip]:[local_port];branch=[branch]
+      Max-Forwards: 70
+      From: <sip:alice@[local_ip]>;tag=[call_number]
+      To: <sip:1001@[remote_ip]>
+      Call-ID: [call_id]
+      CSeq: 1 INVITE
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: fail_487_request_terminated
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+      ]]>
+      </send>
+  <recv response="100" optional="true" crlf="true"/>
+  <recv response="487" crlf="true"/>
+<send>
+<![CDATA[
+ACK sip:1001@[remote_ip]:[remote_port];transport=UDP SIP/2.0
+Via: SIP/2.0/UDP [local_ip]:[local_port];branch=[branch]
+From: <sip:alice@[local_ip]>;tag=[call_number]
+To: <sip:1001@[remote_ip]>[peer_tag_param]
+Call-ID: [call_id]
+CSeq: 1 ACK
+Contact: <sip:[local_ip]:[local_port]>
+X-Scenario: fail_487_request_terminated
+Content-Length: 0
+]]>
+</send>
+</scenario>

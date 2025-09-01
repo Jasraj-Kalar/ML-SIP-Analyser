@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE scenario SYSTEM "sipp.dtd">
+<scenario name="success_hold_toggle_varied">
+  <recv request="INVITE" crlf="true"/>
+<send>
+<![CDATA[
+SIP/2.0 180 Ringing
+[last_Via:]
+[last_From:]
+[last_To:];tag=[pid]SIPpTag[call_number]
+[last_Call-ID:]
+[last_CSeq:]
+Contact: <sip:[local_ip]:[local_port]>
+X-Scenario: success_hold_toggle_varied
+
+Content-Length: 0
+]]>
+</send>
+      <send>
+      <![CDATA[
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[pid]SIPpTag[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: success_hold_toggle_varied
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+      ]]>
+      </send>
+  <recv request="ACK" crlf="true"/>
+      <recv request="INVITE" crlf="true"/>
+      <nop><action><ereg regexp="a=sendonly" search_in="msg" check_it="false" assign_to="hold0"/></action></nop>
+      <nop next="0" test="hold0"/>
+            <send>
+      <![CDATA[
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[pid]SIPpTag[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: success_hold_toggle_varied
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+      ]]>
+      </send>
+
+      <recv request="ACK" crlf="true"/>
+      <nop next="1"/>
+      <label id="0"/>
+            <send>
+      <![CDATA[
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[pid]SIPpTag[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: success_hold_toggle_varied
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=recvonly
+      ]]>
+      </send>
+
+      <recv request="ACK" crlf="true"/>
+      <label id="1"/>
+      <recv request="INVITE" crlf="true"/>
+      <nop><action><ereg regexp="a=sendonly" search_in="msg" check_it="false" assign_to="hold1"/></action></nop>
+      <nop next="10" test="hold1"/>
+            <send>
+      <![CDATA[
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[pid]SIPpTag[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: success_hold_toggle_varied
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+      ]]>
+      </send>
+
+      <recv request="ACK" crlf="true"/>
+      <nop next="11"/>
+      <label id="10"/>
+            <send>
+      <![CDATA[
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[pid]SIPpTag[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: success_hold_toggle_varied
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=recvonly
+      ]]>
+      </send>
+
+      <recv request="ACK" crlf="true"/>
+      <label id="11"/>
+      <recv request="INVITE" crlf="true"/>
+      <nop><action><ereg regexp="a=sendonly" search_in="msg" check_it="false" assign_to="hold2"/></action></nop>
+      <nop next="20" test="hold2"/>
+            <send>
+      <![CDATA[
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[pid]SIPpTag[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: success_hold_toggle_varied
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=sendrecv
+      ]]>
+      </send>
+
+      <recv request="ACK" crlf="true"/>
+      <nop next="21"/>
+      <label id="20"/>
+            <send>
+      <![CDATA[
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_From:]
+      [last_To:];tag=[pid]SIPpTag[call_number]
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port]>
+      X-Scenario: success_hold_toggle_varied
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+o=- 0 0 IN IP4 [local_ip]
+s=SIPp
+c=IN IP4 [local_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 8
+a=rtpmap:8 PCMA/8000
+a=recvonly
+      ]]>
+      </send>
+
+      <recv request="ACK" crlf="true"/>
+      <label id="21"/>
+  <recv request="BYE" crlf="true"/>
+<send>
+<![CDATA[
+SIP/2.0 200 OK
+[last_Via:]
+[last_From:]
+[last_To:];tag=[pid]SIPpTag[call_number]
+[last_Call-ID:]
+[last_CSeq:]
+Contact: <sip:[local_ip]:[local_port]>
+X-Scenario: success_hold_toggle_varied
+
+Content-Length: 0
+]]>
+</send>
+</scenario>

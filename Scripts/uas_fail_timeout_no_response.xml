@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE scenario SYSTEM "sipp.dtd">
+<scenario name="fail_timeout_no_response">
+  <recv request="INVITE" crlf="true"/>
+  <pause milliseconds="25000"/>
+</scenario>
